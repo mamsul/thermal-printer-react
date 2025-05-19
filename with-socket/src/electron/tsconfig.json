@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "ESNext",
+    "module": "NodeNext",
+    "outDir": "../../dist-electron",
+    "skipLibCheck": true,
+    "types": [
+      "../../types/types.d.ts",
+      "../../types/escpos-usb.d.ts",
+      "../../types/escpos.d.ts"
+    ]
+  }
+}
