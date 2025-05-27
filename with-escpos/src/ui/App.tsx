@@ -21,6 +21,9 @@ function App() {
         <button onClick={() => window.electron.startPrintNetwork()}>
           Print via ESCPOS-Network
         </button>
+        <button onClick={() => window.electron.checkConnection()}>
+          Check Connection
+        </button>
       </div>
     </div>
   )

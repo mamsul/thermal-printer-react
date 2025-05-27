@@ -7,7 +7,7 @@
     "scripts": {
         "dev": "concurrently \"pnpm dev:electron\" \"pnpm dev:react\"",
         "dev:react": "vite",
-        "dev:electron": "NODE_ENV=development electron .",
+        "dev:electron": "cross-env NODE_ENV=development electron .",
         "build": "tsc -b && vite build",
         "lint": "eslint .",
         "preview": "vite preview",
@@ -17,9 +17,12 @@
         "dist:linux": "pnpm transpile:electron && pnpm build && electron-builder --linux --x64"
     },
     "dependencies": {
+        "@types/ping": "^0.4.4",
         "escpos": "3.0.0-alpha.6",
+        "escpos-network": "3.0.0-alpha.5",
         "escpos-usb": "3.0.0-alpha.4",
         "os-utils": "^0.0.14",
+        "ping": "^0.4.4",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "usb": "1.9.2"

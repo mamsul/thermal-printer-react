@@ -9,7 +9,10 @@ import { Server } from 'socket.io'
 import usb from 'usb'
 import escpos from 'escpos'
 import escposUsb from 'escpos-usb'
+import escposNetwork from 'escpos-network'
+
 escpos.NEWUSB = escposUsb
+escpos.Network = escposNetwork
 
 function getPrinterInfo(device: any) {
   return new Promise((resolve) => {
@@ -104,6 +107,35 @@ io.on('connection', (socket) => {
       }
     },
   )
+
+  socket.on('print-via-network', async (dataPrint: Uint8Array) => {
+    const device = new escpos.Network('192.168.21.99', 9100)
+    // const printer = new escpos.Printer(device)
+
+    console.log({ dataPrint, device })
+
+    // if (!device) {
+    //   console.log('Printer not found')
+    //   return
+    // }
+
+    // device.open((error: any) => {
+    //   if (error) {
+    //     console.error('Error opening device:', error)
+    //     return
+    //   }
+
+    //   device.write(Buffer.from(dataPrint), (err?: any) => {
+    //     if (err) {
+    //       console.error('Error writing to printer:', err)
+    //     } else {
+    //       console.log('Data sent successfully')
+    //     }
+
+    //     device.close()
+    //   })
+    // })
+  })
 
   socket.on('disconnect', () => {
     console.log('Client disconnected:', socket.id)

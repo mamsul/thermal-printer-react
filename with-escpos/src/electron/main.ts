@@ -2,10 +2,14 @@ import { app, BrowserWindow } from 'electron'
 import path from 'path'
 import { ipcHandle, isDev } from './utils.js'
 import { getPreloadPath } from './path-resolver.js'
+import ping from 'ping'
 
 import escpos from 'escpos'
 import escposUsb from 'escpos-usb'
+import escposNetwork from 'escpos-network'
+
 escpos.NEWUSB = escposUsb
+escpos.Network = escposNetwork
 
 app.on('ready', () => {
   const mainWindow = new BrowserWindow({
@@ -92,10 +96,8 @@ app.on('ready', () => {
 
   // print via escpos network
   ipcHandle('print-via-escpos-network', () => {
-    const device = new escpos.Network('192.168.1.100', 9100)
+    const device = new escpos.Network('192.168.21.99', 9100)
     const printer = new escpos.Printer(device)
-
-    console.log({ device, printer })
 
     // templating
     device.open((error: any) => {
@@ -117,7 +119,7 @@ app.on('ready', () => {
       printer.font('B')
       printer.style('NORMAL')
       printer.align('LT').text('')
-      printer.style('B')
+      //   printer.style('B')
       printer.align('CT').text('React Electron')
       printer.align('CT').text('Thermal Printer')
       printer.align('LT').text('')
@@ -153,5 +155,11 @@ app.on('ready', () => {
       printer.cashdraw(2)
       printer.close()
     })
+  })
+
+  ipcHandle('check-connection', async () => {
+    const ip = '192.168.21.99'
+    const res = await ping.promise.probe(ip)
+    console.log(res.alive)
   })
 })

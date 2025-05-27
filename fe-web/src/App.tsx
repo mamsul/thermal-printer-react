@@ -55,6 +55,12 @@ function App() {
     });
   };
 
+  const handlePrintNetwork = async () => {
+    const dataPrint = await createPrintData();
+
+    emit('print-via-network', dataPrint);
+  };
+
   return (
     <div className='h-dvh w-dvw flex flex-col justify-center items-center bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%'>
       <div className='flex flex-col gap-5 p-5 rounded-xl w-full max-w-lg backdrop-blur-lg bg-white/20'>
@@ -83,6 +89,14 @@ function App() {
         >
           <PrinterIcon className='w-5 text-gray-700' />
           Start Print
+        </button>
+
+        <button
+          className='cursor-pointer p-1.5 ml-auto bg-white rounded-sm text-sm inline-flex'
+          onClick={handlePrintNetwork}
+        >
+          <PrinterIcon className='w-5 text-gray-700' />
+          Start Print Network
         </button>
       </div>
     </div>

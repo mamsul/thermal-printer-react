@@ -3,7 +3,8 @@
     "types": [
       "./types/types.d.ts",
       "./types/escpos-usb.d.ts",
-      "./types/escpos.d.ts"
+      "./types/escpos.d.ts",
+      "./types/escpos-network.d.ts"
     ],
 
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
