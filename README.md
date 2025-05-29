@@ -18,7 +18,10 @@ Environment:
 Required lib:
 - scpos
 - escpos-usb
+- escpos-network
 - usb@1.9.2
+- ping
+- puppeteer
 
 Start:
 - pnpm i
