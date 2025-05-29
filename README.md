@@ -1,8 +1,15 @@
 # Rerearch Print ke Thermal Printer dengan React
 
-- Case dengan koneksi usb
-- Case dengan socket io
-- Cased dengan network - progress
+- Case dengan koneksi usb ✓
+- Case dengan socket io ✓
+- Case dengan network ✓
+- Print dengan templating escpos -> TEKS MODE ✓
+- Print dengan templating escpos -> BITMAP ✓
+
+Tested on the following printer:
+- VSC Thermal Printer ✓
+- Epson TM-T82X ✓
+- Epson TM-U220 - progress
 
 Environment:
 - Node: 18.18.2
