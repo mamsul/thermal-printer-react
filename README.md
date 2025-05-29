@@ -24,6 +24,7 @@ Required lib:
 - puppeteer
 
 Start:
+- *move to the project folder
 - pnpm i
 - pnpm add escpos escpos-usb usb@1.9.2
 - pnpm transpile:electron
