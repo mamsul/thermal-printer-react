@@ -3,6 +3,7 @@ const electron = require('electron')
 electron.contextBridge.exposeInMainWorld('electron', {
   testPing: () => ipcInvoke('ping'),
   startPrintUsb: () => ipcInvoke('print-via-escpos-usb'),
+  startPrintUsbBitmap: () => ipcInvoke('print-via-escpos-usb-bitmap'),
   startPrintNetwork: () => ipcInvoke('print-via-escpos-network'),
   checkConnection: () => ipcInvoke('check-connection'),
 } satisfies Window['electron'])

@@ -18,6 +18,9 @@ function App() {
         <button onClick={() => window.electron.startPrintUsb()}>
           Print via ESCPOS-USB
         </button>
+        <button onClick={() => window.electron.startPrintUsbBitmap()}>
+          Print via ESCPOS-USB Bitmap
+        </button>
         <button onClick={() => window.electron.startPrintNetwork()}>
           Print via ESCPOS-Network
         </button>

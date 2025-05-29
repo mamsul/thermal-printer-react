@@ -23,6 +23,7 @@
         "escpos-usb": "3.0.0-alpha.4",
         "os-utils": "^0.0.14",
         "ping": "^0.4.4",
+        "puppeteer": "^24.9.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "usb": "1.9.2"
